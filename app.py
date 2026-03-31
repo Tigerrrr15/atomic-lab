@@ -1,17 +1,15 @@
 import requests
-import logging  # ДОБАВЛЕНО: для обработки ошибок
 
-# ИЗМЕНЕНО: переименованы переменные для ясности
-def validate_user(user_info):  # было: user_data
+def validate_user(user_info):
     if not user_info.get('email'):
-        logging.error("Email is required")  # ИЗМЕНЕНО: print -> logging
+        print("Email is required")
         return False
     if not user_info.get('age') or user_info['age'] < 18:
-        logging.error("User must be 18+")  # ИЗМЕНЕНО: print -> logging
+        print("User must be 18+")
         return False
     return True
 
-# НОВОЕ: функция для проверки статуса пользователя
+
 def get_user_status(user_info):
     """feat: add user status function"""
     age = user_info.get('age', 0)
